@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{% static '/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+    <title>Adminlar</title>
+</head>
+<body>
+
+    {% include 'asosiy/navbar.html' %} 
+
+    <div class="container-fluid row p-0 m-0">
+        <div class="col-2 p-1 vh-100 border-dark border-end border-5" style="border-right: 3px solid rgb(24, 20, 20);">
+          {% include 'superuser/asosiy/col-2.html' %}
+        </div>
+        <div class="col-10 p-0 m-0">
+            <nav class="navbar border-bottom border-4 border-primary" aria-label="breadcrumb" style="background-color: #e3f2fd;">
+                <ol class="breadcrumb  ms-3 mb-0 p-1">
+                  <li class="breadcrumb-item">
+                    <a class="link-underline-light" href="{% url 'home' %}">Asosiy</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a class="link-underline-light" href="{% url 'adminlar' %}">Home</a>
+                  </li>                  
+                  <li class="breadcrumb-item active" aria-current="page">Barcha adminlar</li>
+                </ol>
+                <span class="pe-3">
+                    <a class="btn btn-primary" href="{% url 'superadmin' %}" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-plus pb-1" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                        Yangi admin qo`shish
+                    </a>
+                </span>
+            </nav>
+              
+            <div class="container p-4">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+              
+                    <table class="table table-hover p-4">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Familya</th>
+                            <th scope="col">Ism</th>
+                            <th scope="col">Telefon nomer</th>
+                            <th scope="col">Parol</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for i in adminlar %}
+                                {% if i.lavozim == 'superadmin'%}
+                                    <tr>
+                                        <th scope="row">{{i.username}}</th>
+                                        <td>{{i.first_name | title }}</td>
+                                        <td>{{i.last_name | title }}</td>
+                                        <td>{{i.telefon}} </td>
+                                        <td>{{i.parol}}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                                                   
+                        </tbody>
+                      </table>
+            
+                              
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% include 'asosiy/futer.html' %}
+       
+    <!-- JS FAYL BOOTSTRAP-->
+    <script src="{% static '/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- MY JS -->
+    <script src="{% static '/js/app.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+</body>
+</html>
+
+  
+      

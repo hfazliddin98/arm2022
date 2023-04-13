@@ -1,0 +1,14 @@
+
+{{data}}
+{% for k in data %} 
+    {{k}}
+    {% for u in user %}
+        {% if k.talaba_id == 300000000000 %}
+            <h1>salom talabalar</h1>
+        {% else %}
+            {{k.talaba_id}}
+            {{u.username}}
+            <h2>kira olmadingiz</h2>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

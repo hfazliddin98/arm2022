@@ -1,0 +1,75 @@
+.style-bg {
+    background-color: #3C8DBC !important;
+}
+.style-bg-02 {
+    background-color: #3aa7e6 !important;
+}
+.style-h2 {
+    display: inline-block;
+}
+.style-img-2 {
+    width: 30px;
+    height: 30px;
+}
+.icon-chiqish {
+    width: 18px;
+    height: 18px;
+}
+.style-01 {
+    cursor: pointer;
+    user-select: none;
+}
+.style_z-index {
+    z-index: 5;
+}
+.style_z-index-2 {
+    z-index: -1;
+}
+.style_z-index-6 {
+    z-index: 6;
+    position: relative;;
+}
+.style_h {
+    height: 400px;
+}
+.w-space {
+    white-space: nowrap;
+}
+
+    /* Media bo'limi */
+@media screen and (max-width: 420px) {
+    .style-h2 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .style_h {
+        height: 300px;
+    }
+}
+@media screen and (min-width: 576px) {
+    .style_h {
+        height: 400px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .style_h {
+        height: 500px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .style_h {
+        height: 600px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .style_h {
+        height: 700px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .style_h {
+        height: 800px;
+    }
+}

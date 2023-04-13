@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{% static '/image/QDPI.png' %}" type="image/x-icon">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{% static '/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+
+    <title>Axborot-resurs markazi</title>
+</head>
+<body>
+
+
+    {% include 'asosiy/navbar.html' %}  
+    
+    <div class="container p-4">
+        <h1 class="text-center">Yangi kitob kiritish</h1>
+        <form class="row g-3" method="POST">
+            {% csrf_token %}
+<!--             
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Fakultet qidiruv...">
+            <datalist id="datalistOptions">
+                {% for f in fakultet %}
+                <option value={{f}}>
+                {% endfor%}               
+            </datalist> -->
+
+           
+
+            <input class="form-control" type="text" placeholder="Shifr" aria-label="default input example" name="shifr" type="text">
+            <input class="form-control" type="text" placeholder="Aftor belgisi" aria-label="default input example" name="aftor_belgisi" type="text">
+            <input class="form-control" type="text" placeholder="Invertor nomeri" aria-label="default input example" name="invertor_nomeri" type="text">
+            <input class="form-control" type="text" placeholder="Mualiflar" aria-label="default input example" name="mualiflar" type="text">
+            <input class="form-control" type="text" placeholder="Kitob nomi" aria-label="default input example" name="kitob_nomi" type="text">
+            <input class="form-control" type="text" placeholder="Nashriyot" aria-label="default input example" name="nashriyot" type="text">
+            <input class="form-control" type="text" placeholder="Nashr yili" aria-label="default input example" name="nashr_yili" type="text">
+            <input class="form-control" type="text" placeholder="ISBN" aria-label="default input example" name="isbn" type="text">
+            <input class="form-control" type="text" placeholder="Kitob narxi" aria-label="default input example" name="kitob_narxi" type="text">
+            <input class="form-control" type="text" placeholder="Tili" aria-label="default input example" name="tili" type="text">
+            <input class="form-control" type="text" placeholder="Alfabit" aria-label="default input example" name="alfabit" type="text">
+            <input class="form-control" type="text" placeholder="Darslik turi" aria-label="default input example" name="darslik_turi" type="text">
+            <input class="form-control" type="text" placeholder="Kitobni fondagi soni" aria-label="default input example" name="kitobni_fondagi_soni" type="text">
+            <input class="form-control" type="text" placeholder="Anatatsiya" aria-label="default input example" name="anatatsiya" type="text">
+            <input class="form-control" type="text" placeholder="Munddarija" aria-label="default input example" name="mundarija" type="text">
+            <input class="form-control" type="text" placeholder="Kitob turi" aria-label="default input example" name="kitob_turi" type="text">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Kitob rasmi</label>
+                </div>
+                <div class="col-auto">
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="kitob_rasmini_kiriting">                  
+                </div>                
+            </div>
+            
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Kitob elektron varyantini</label>
+                </div>
+                <div class="col-auto">
+                    <input class="form-control form-control-sm" id="inputPassword6" type="file" name="fayl">                  
+                </div>
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text">
+                    .docx va .pdf 
+                  </span>
+                </div>
+            </div>
+                
+            <button class="btn btn-primary mb-4 mt-4" type="submit">saqlash</button>
+        </form>
+    </div>
+
+
+    {% include 'asosiy/futer.html' %}
+        
+    <!-- JS FAYL BOOTSTRAP-->
+    <script src="{% static '/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- MY JS -->
+    <script src="{% static '/js/app.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+

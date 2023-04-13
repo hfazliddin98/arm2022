@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{% static '/image/QDPI.png' %}" type="image/x-icon">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{% static '/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+
+    <title>Axborot-resurs markazi</title>
+</head>
+<body>
+
+
+    {% include 'asosiy/navbar.html' %}  
+    
+    <div class="container vh-100 p-4">
+        <h1 class="text-center">Talabaga yangi kitob qo`shish</h1>
+        <form class="row g-3" method="POST">
+            {% csrf_token %}
+            
+            <input name="talaba_id" class="form-control" list="talabalist" id="talaba_id" placeholder="Talaba id kiriting...">
+            <datalist id="talabalist">
+                {% for t in talaba_id %}
+                <option value='{{t}} '>
+                <p>{{t.first_name | title}} {{t.last_name | title}} {{t.talaba_yonalish}} {{t.talaba_kurs}} {{t.talaba_guruh}}</p>
+                <p></p>
+                {% endfor%}               
+            </datalist>
+
+            <input name="invertor_nomeri" class="form-control" list="invertorlist" id="invertor_nomer" placeholder="Invertor nomeri...">
+            <datalist id="invertorlist">
+                {% for i in invertor %}
+                <option value={{i}}>
+                <h1>{{i.id}}</h1>
+                {% endfor%}               
+            </datalist>           
+
+            <input  name="formulyar_raqami" class="form-control" placeholder="Formulyar raqami" aria-label="default input example" type="text">
+            <input  name="tel_raqami" class="form-control" type="text" placeholder="Telefon nomer" aria-label="default input example" type="text">
+            <input  name="pasport_seryasi" class="form-control" type="text" placeholder="Pasport seryasi" aria-label="default input example" type="text">
+            <input  name="pasport_raqami" class="form-control" type="text" placeholder="Pasport raqami" aria-label="default input example" type="text">
+                
+            <button class="btn btn-primary mb-4 mt-4" type="submit">saqlash</button>
+        </form>
+    </div>
+
+
+    {% include 'asosiy/futer.html' %}
+        
+    <!-- JS FAYL BOOTSTRAP-->
+    <script src="{% static '/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- MY JS -->
+    <script src="{% static '/js/app.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+

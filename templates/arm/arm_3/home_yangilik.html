@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/yangilik/bootsrtap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static '/yangilik/images/QDPI.png' %}" type="image/x-icon">
+    <title>Yangiliklar oynasi</title>
+</head>
+<body>
+  {% include 'asosiy/navbar.html' %}
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+              <img src="{% static '/image/kutibxona-1.jpg' %}" class="w-100 style_h d-block" alt="First slide">
+          </div>
+          <div class="carousel-item">
+              <img src="{% static '/image/kutibxona-2.jpg' %}" class="w-100 style_h d-block" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+              <img src="{% static '/image/kutibxona-3.jpg' %}" class="w-100 style_h d-block" alt="Third slide">
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+
+
+  
+    <div class="container-fluid p-0">
+        <!-- Navbar -->
+          
+          
+          <!-- Kirish, Ro'yxatdan o'tish -->
+          <section class="btn-un py-5 bg-light d-flex justify-content-center">
+            <div class="toCenter d-flex flex-column flex-sm-row">
+              <a class="btn btn-style-1 btn-primary me-sm-2" href="{% url 'kirish' %}" type="submit">Kirish</a>
+              <a class="btn btn-style-1 btn-primary mt-3 mt-sm-0 ms-sm-2" href="{% url 'talaba' %}" type="submit">Ro'yxatdan o'tish</a>
+            </div>
+          </section>
+          <!-- Yangiliklar oynasi -->          
+          <section class="d-flex flex-row flex-lg-row flex-sm-column flex-wrap justify-content-center align-items-sm-center pt-5">
+            {% for y in page.object_list %}
+              <div class="card m-2" style="width: 18rem;">
+                <img src="{{y.rasm.url}}" class="card-img-top style-img-wh" alt="Yanglik rasmi">
+                <div class="card-body">
+                  <h5 class="card-title">{{y.title | slice:":20"}}</h5>
+                  <p class="card-text">{{y.body | slice:":50"}}</p>
+                  {% for i in javob %}
+                    <span class="link"><a href="{% url 'yangiliklar' %}">Batafsil...</a></span>
+                  {% endfor %}  
+                </div>
+              </div> 
+            {% endfor %}           
+          </section>   
+          <!-- Pajinesion--> 
+          <nav aria-label="Page navigation example">
+            <ul class="pagination  d-flex justify-content-center mb-5">
+              <li class="page-item">
+                {% if page.has_previous %}
+                <a class="page-link" href="{% url 'home' %}?page={{ page.previous_page_number }}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+                {% endif %}
+              </li>
+              {% for nomer in page.paginator.page_range %}
+                {% if page.number == nomer %}
+                  <li class="page-item  active"><a class="page-link" href="{% url 'home' %}?page={{ nomer }}">{{nomer}}</a></li>
+                {% else %}
+                  <li class="page-item"><a class="page-link" href="{% url 'home' %}?page={{ nomer }}">{{nomer}}</a></li>
+                {% endif %}
+              {% endfor %}
+              <li class="page-item">
+                {% if page.has_next %}
+                <a class="page-link" href="{% url 'home' %}?page={{ page.next_page_number }}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+                {% endif %}
+              </li>
+            </ul>
+          </nav>
+          <!-- Reyting -->
+          <section class="position-relative px-5 py-5 style-bg-color">
+            <div class="reyting-text text-center">
+              <h1 class="text-primary">Qo'qon Davlat Pedagogika Instituti</h1>
+              <p class="fw-bold">Muqimiy nomidagi Qoʻqon davlat pedagogika instituti 1931-yil yanvar oyida kechki pedagogika instituti sifatida tashkil etilgan. Institut 1939-1940 oʻquv yilidan boshlab kunduzgi davlat oʻqituvchilar institutiga aylantirilgan.</p>
+            </div>
+            <div class="reyting d-flex flex-column flex-sm-row justify-content-center">
+              <span class="talaba text-center m-4 m-sm-5">
+                <h2>Talab</h2>
+                <h1 class="text-danger">16547</h1>
+              </span>
+              <span class="kitob text-center m-4 m-sm-5">
+                <h2>Kitoblar</h2>
+                <h1 class="text-danger">52489</h1>
+              </span>
+              <span class="jurnal text-center m-4 m-sm-5">
+                <h2>Jurnallar</h2>
+                <h1  class="text-danger">2486</h1>
+              </span>
+            </div>
+          </section>
+          {% include 'asosiy/futer.html' %} 
+
+    </div>
+    <script src="{% static '/yangilik/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+</body>
+</html>

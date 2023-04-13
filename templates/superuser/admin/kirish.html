@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{% static '/image/QDPI.png' %}" type="image/x-icon">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{% static '/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <title>QDPI forma</title>
+</head>
+<body>
+    
+    <div class="container d-flex justify-content-around">
+        <!-- FORM -->
+        <form method="post" action="#" id="form" class="form row justify-content-around px-4 style_1 mt-2 pb-4" novalidate>
+            {% csrf_token %}
+            <img class="img_1" src="{% static '/image/QDPI.png' %}" alt="QDPI">
+            <h1 class=" my-3 style_spoc me-lg-4 me-xl-5">
+                Qo'qon Axborot Resurs Markazi
+            </h1>                        
+            <!-- USERNAME -->
+            <div class="input-icon position-relative style-div-1">
+                <input name="username" type="text" class="form-control position_1 my-3 pe-5 position-relative" id="inp-id" placeholder="Hemis id" required>
+                <img class="position__1" id="none_1" src="{% static '/image/head_mail.png' %}" alt="head">
+                <div class="valid-feedback">
+                    Id to'g'ri kiritildi
+                </div>  
+                        
+                <div class="invalid-feedback">
+                    Id 12 xonali, Raqamlardan iborat !
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="input-icon position-relative style-div-1">
+                <input name="password" type="password" class="form-control position_2 my-3 pe-5" id="inp-passw" placeholder="Parol" required>
+                <img class="position__2" id="none_2" src="{% static '/image/key.png' %}" alt="key">
+                <img src="{% static '/image/icons8-eye-30.png' %}" class="eye_pass d-none" id="eye_pass" alt="Eye">
+                <div class="valid-feedback">
+                    To'gri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Xato kiritildi. Parol bosh belgi harfda, raqamlar ishtirokida, 6 tadan ko'p 12 tadan kam bo'lishi kerak. 
+                </div>
+            </div>
+            <!-- Checkbox -->
+            <div class="form-check form-check-inline style-mar mt-2">
+                <input type="checkbox" id="inp-eslabQol" class="style-check form-check-input check d-inline-block me-3" style="width: 18px;">
+                <label for="x-1">Eslab qolish</label>
+            </div>
+            <button class="btn btn-primary col-6 mt-4 style_btn" id="btn">Kirish</button>
+        </form>
+    </div>
+    {% for i in messages %}
+    <div id="xato" class="d-none">
+        {{i}}
+        xato
+    </div>                            
+    {% endfor%}   
+
+    
+    <!-- JS FAYL BOOTSTRAP-->
+    <script src="{% static '/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- MY JS -->
+    <script src="{% static '/js/app.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% load static %}
+<div class="container-fluid p-0">
+  {% if user.is_authenticated %}  
+    <nav class="style-bg navbar position-relative bg-primary ps-md-3 ps-lg-5 ps-sm-2">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static '/image/arm.jpg' %}" style="width: 55px; height: 55px; border-radius: 50%;" alt="QDPI">
+          <h2 class="h1 fs-6 d-inline-block text-white style-h2">
+              Axborot Resurs Markazi
+          </h2>
+          </a>
+          <div id="user-div" class="a_1 d-flex align-items-center ps-3 pe-2 style-01">
+              <img class="a_2 style-img-2 d-inline-block me-3" src="{% static '/image/head-mail.png' %}" alt="">
+              <div class="a_3 text-white d-inline-block">
+                  <!-- User name -->
+                  <b class=" a_4 m-0" id="user-name">{{user.last_name | title}}</b>
+                  <!-- User Last name -->
+                  <p class="d-inline-block ps-1 a_5 m-0" id="user-lastName">{{user.first_name | title}}</p>
+              </div>
+          </div>
+      </div>
+      <!-- Dropdown menu -->
+      <div class="b_1 position-absolute end-0 top-100 pt-3 pb-4 px-4 bg-primary d-none style_z-index style-bg-02" id="dropdown_menu">
+          <b class="b_2 style_z-index-6">{{user.username | title}}</b>
+          <p class="b_3 m-0 mt-2 style_z-index-6" id="user-nameNew">{{user.first_name | title}}</p>
+          <p class="b_4 m-0 style_z-index-6" id="user-lastNameNew">{{user.last_name | title}}</p>
+          <div class="b_5 icon-chiqish mt-2 style_z-index">
+              <a href="{% url 'logout' %}" class="b_6 text-white style_z-index w-space text-decoration-none">
+                  <strong>Chiqish</strong> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                  </svg>
+              </a>
+          </div>
+      </div>
+    </nav>
+        
+  {% else %}
+    <nav class="style-bg navbar position-relative bg-primary ps-md-3 ps-lg-5 ps-sm-2">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static '/image/arm.jpg' %}" style="width: 55px; height: 55px; border-radius: 50%;" alt="QDPI">
+          <h2 class="h1 fs-6 d-inline-block text-white style-h1">
+              <b>Axborot Resurs Markazi</b>
+          </h2>
+          </a>          
+      </div>           
+    </nav>    
+  {% endif %}
+</div>

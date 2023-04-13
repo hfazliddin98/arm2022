@@ -1,0 +1,14 @@
+<form action="" method="POST">
+    {{habar}}
+    {% csrf_token %}
+    <select name="viloyat">
+        <option selected>Viloyat</option>
+        {% for i in viloyat %}
+            <option>                
+                    {{i}}                
+            </option>
+        {% endfor %}        
+    </select>
+    <input type="text" name="tuman" placeholder="tuman">
+    <button type="submit">saqlash</button>
+</form>

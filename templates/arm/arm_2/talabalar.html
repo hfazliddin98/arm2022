@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{% static '/image/QDPI.png' %}" type="image/x-icon">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{% static '/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+
+    <title>Axborot-resurs markazi</title>
+</head>
+<body>
+    <marquee width="100%" direction="left" height="20px" style="color: red;">
+        Saytda texnik ishlar olib borilmoqda!!!
+    </marquee>   
+    {% if user.is_authenticated %}    
+
+      {% include 'asosiy/navbar.html' %}  
+      
+        <div class="container-fluid row p-0 m-0">
+          <div class="col-2 p-1 vh-100 border-dark border-end">
+            {% include 'arm/arm_2/col-2.html' %}
+          </div>
+          <div class="col-10 p-0 m-0">
+            <nav class="navbar border-bottom border-4 border-primary" aria-label="breadcrumb" style="background-color: #e3f2fd;">
+                <ol class="breadcrumb  ms-3 mb-0 p-1">
+                  <li class="breadcrumb-item">
+                    <a class="link-underline-light" href="{% url 'home' %}">Asosiy</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">Home</li>
+                </ol>
+                <span class="pe-3">
+                  <a class="btn btn-primary" href="{% url 'yangi_talaba' %}" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal-plus pb-1" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+                      <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                      <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                    </svg>
+                      Talabaga yangi kitob qo`shish
+                  </a>
+              </span>
+            </nav>
+              
+            <div class="container p-4">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+              
+                    <table class="table table-hover p-4">
+                        <thead>
+                          <tr>
+                            <th scope="col">Talaba id</th>
+                            <th scope="col">Invertor nomer</th>
+                            <th scope="col">Formulyar raqam</th>
+                            <th scope="col">Telefon nomer</th>
+                            <th scope="col">Pasport seriya</th>
+                            <th scope="col">Pasport raqam</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+              
+                            {% for i in data %}                                
+                                <tr>
+                                    <th scope="row">{{i.talaba_id}}</th>
+                                    <td>{{i.invertor_nomeri}}</td>
+                                    <td>{{i.formulyar_raqami}}</td>
+                                    <td>{{i.tel_raqami}}</td>
+                                    <td>{{i.pasport_seryasi}}</td>
+                                    <td>{{i.pasport_raqami}}</td>
+                                </tr>                                
+                            {% endfor %}
+                                                   
+                        </tbody>
+                      </table>                
+                </div>
+            </div>
+          </div>
+        </div>              
+                
+      {% include 'asosiy/futer.html' %}
+        
+    
+    {% endif %} 
+        
+    <!-- JS FAYL BOOTSTRAP-->
+    <script src="{% static '/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- MY JS -->
+    <script src="{% static '/js/app.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+

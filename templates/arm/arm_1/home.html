@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{% static '/image/QDPI.png' %}" type="image/x-icon">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{% static '/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+
+    <title>Axborot-resurs markazi</title>
+</head>
+<body>
+    <marquee width="100%" direction="left" height="20px" style="color: red;">
+        Saytda texnik ishlar olib borilmoqda!!!
+    </marquee>   
+    {% if user.is_authenticated %}    
+
+      {% include 'asosiy/navbar.html' %}  
+      
+        <div class="container-fluid row p-0 m-0">
+          <div class="col-2 p-1 vh-100 border-dark border-end">
+            {% include 'arm/arm_1/col-2.html' %}
+          </div>
+          <div class="col-10 p-0 m-0">
+            {% include 'arm/arm_1/col-10.html' %}
+          </div>
+        </div>              
+                
+      {% include 'asosiy/futer.html' %}
+        
+    
+    {% endif %} 
+        
+    <!-- JS FAYL BOOTSTRAP-->
+    <script src="{% static '/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- MY JS -->
+    <script src="{% static '/js/app.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+    

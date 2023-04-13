@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish</title>
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="{% static '/royhat/bootsrtap/css/bootstrap.min.css' %}">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="{% static '/royhat/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/yangilik/css/style.css' %}">
+</head>
+<body>
+    <!-- navbar -->
+
+    {% include 'asosiy/navbar.html' %}
+
+    <!-- talaba kiritish -->
+    <div class="container-fluid pt-5 bg-light d-flex justify-content-center">
+        <form class="form row style-width d-flex justify-content-center pb-5 px-2 pt-4" method="POST" id="form" novalidate>
+          {% csrf_token %}
+            <h1 class="text-center mb-4">Admin qo`shish</h1>
+            {% if habar %}
+              {{habar}}
+            {% endif %}
+            <!-- Id -->
+            <div class="position-relative style-div-1 p-0">
+                <input name="username" type="text" class="form-control position_1 my-3 pe-5 position-relative" id="inp-id" placeholder="Hems id" required>
+                <img class="position__1" id="person-img" src="{% static '/royhat/image/head_mail.png' %}" alt="head">
+                <div class="valid-feedback">
+                    Id to'g'ri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Id 12 xonali, Raqamlardan iborat !
+                </div>
+            </div>
+            <!-- Ismi -->
+            <input name="ism" type="text" placeholder="Ismi" class="bosh-harf py-2 mt-3 form-control">
+            <div class="invalid-feedback">
+                Ismni bosh harfi Kattada bo'lishi kerak
+            </div>
+            <!-- Familya -->
+            <input name="familya" type="text" placeholder="Familya" class="bosh-harf py-2 mt-3 form-control">
+            <div class="invalid-feedback">
+                Familyani bosh harfi Kattada bo'lishi kerak
+            </div>
+            <!-- Otchestva/Otasi ismi  -->
+            <input name="sharif" type="text" placeholder="Otasi ismi" class="bosh-harf py-2 mt-3 form-control">
+            <div class="invalid-feedback">
+                Ota ismini bosh harfi Kattada bo'lishi kerak
+            </div>                 
+            <!-- Viloyat -->
+            <select name="viloyat" id="region" size="1" class="col-12 py-2 mt-3 form-select">
+                <option value="">Viloyat</option>                                
+            </select>
+            <!-- Tuman -->
+            <select name="shahar" id="district" size="1" class="col-12 py-2 mt-3 form-select">
+                <option value="">Shahar/Tuman</option>                
+            </select>
+            <!-- Shahar/Qishloq -->
+            <select name="kocha" id="village" size="1" class="col-12 py-2 mt-3 form-select">
+                <option value="">MFY</option>                
+            </select>
+            <!-- Ko'chasi uy no'meri -->
+            <input name="uy_nomer" type="text" placeholder="Ko'cha / Uy raqami" class="form-control mt-3 py-2 bosh-harf">
+            <!-- Email -->
+            <input name="email" type="email" placeholder="Email" id="email-kirit" class="form-control py-2 mt-4" required>
+            <div class="valid-feedback">
+                To'g'ri kiritildi
+            </div>
+            <div class="invalid-feedback">
+                Xato kiritilgan email
+            </div>
+
+            <input name="telefon" type="text" placeholder="+998" class="form-control mt-3 py-2">
+
+            
+           <!-- password -->
+            <div class="position-relative style-div-1 p-0 mt-3">
+                <input name="password1" type="password" class="form-control position_2 my-3 pe-5" id="inp-passw-1" placeholder="Parol" required>
+                <img class="position__2" id="key" src="{% static '/royhat/image/key.png' %}" alt="key">
+                <img src="{% static '/royhat/image/icons8-eye-30.png' %}" class="eye_pass d-none" id="eye_pass" alt="Eye">
+                <div class="valid-feedback">
+                    To'gri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Xato kiritildi. Parol bosh belgi harfda, raqamlar ishtirokida, 6 tadan ko'p 12 tadan kam bo'lishi kerak. 
+                </div>
+            </div>
+
+            <div class="position-relative style-div-1 p-0">
+
+                <input name="password2" type="password" class="form-control position_2 my-3 pe-5" id="inp-passw-2" placeholder="Parolni tasdiqlang" required>
+
+                <img class="position__2" id="key-pass-2" src="{% static '/royhat/image/key.png' %}" alt="key">
+                <img src="{% static '/royhat/image/icons8-eye-30.png' %}" class="eye_pass d-none" id="eye_pass-2" alt="Eye">
+
+                <div class="valid-feedback">
+                    To'gri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Xato kiritildi. Parol birinchi kiritilgan paro'lingiz bilan bir xil bo'lishi kerak
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-50 mt-4">Kirish</button>
+        </form>
+    </div>
+
+    <!-- futer -->
+
+    {% include 'asosiy/futer.html' %}
+
+    <!-- bootstrap JS -->
+    <script src="{% static '/royhat/bootsrtap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- My JS -->
+    <script src="{% static '/royhat/js/app.js' %}"></script>
+    <script src="{% static '/js/app.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+    <script src="{% static '/yangilik/js/app.js' %}"></script>
+    <script src="{% static '/royhat/js/regionStateInfo/main.js' %}"></script>
+</body>
+</html>
+
+
+

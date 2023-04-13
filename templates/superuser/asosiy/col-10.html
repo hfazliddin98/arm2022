@@ -1,0 +1,78 @@
+<nav class="navbar border-bottom border-4 border-primary" aria-label="breadcrumb" style="background-color: #e3f2fd;">
+  <ol class="breadcrumb  ms-3 mb-0 p-1">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+
+<div class="container text-center p-4">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+
+    <div class="col">
+      <div class="card">        
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+            <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+          </svg>
+          <h3 class="card-title pt-3">Adminlar</h3>
+          <hr>
+          <a class="nav-link active" aria-current="page" href="{% url 'adminlar' %}">
+            <i class="bi bi-person-add pe-1"></i>
+            Adminlar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="card">        
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+          </svg>
+          <h3 class="card-title pt-3">ARM</h3>
+          <hr>
+          <a class="nav-link active" aria-current="page" href="{% url 'armadmin' %}">
+            <i class="bi bi-book-half pe-1"></i>
+            ARM
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">        
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+            <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
+          </svg>
+          <h3 class="card-title pt-3">Dekanat</h3>
+          <hr>
+          <a class="nav-link active" aria-current="page" href="{% url 'dekanatadmin' %}">
+            <i class="bi bi-bank pe-1"></i>
+              Dekanat
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="card">        
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+          </svg>
+          <h3 class="card-title pt-3">Talabalar</h3>
+          <hr>
+          <a class="nav-link active" aria-current="page" href="{% url 'talabaadmin' %}">
+            <i class="bi bi-people-fill pe-1"></i>
+            Talabalar
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    
