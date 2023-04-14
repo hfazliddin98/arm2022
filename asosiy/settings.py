@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-b_%6^vg)ps$8nq#%dt+6uwk^%dqg6wy65x(oobh76w8k-)u9$9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'e-library.kspi.uz', '192.168.0.253', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', 'e-library.kspi.uz', '192.168.0.253', '127.0.0.1']
 
 # Application definition
 
@@ -69,24 +69,24 @@ WSGI_APPLICATION = 'asosiy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'arm2023',
-#         'USER': 'arm2023user',
-#         'PASSWORD': 'SAdm@2022',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'arm2023',
+        'USER': 'arm2023user',
+        'PASSWORD': 'SAdm@2022',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
