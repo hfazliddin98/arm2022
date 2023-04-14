@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt, requires_csrf_token, csrf_protect
 from users.models import User
 from .models import  Viloyat, Tuman, Mfy
 from arm.models import Kitoblar, Talabalar
 
-
+@csrf_exempt
 def talaba_kitob(request):
     user = User.objects.all()
     data = Talabalar.objects.all
@@ -15,7 +16,7 @@ def talaba_kitob(request):
     return render(request, 'talaba/kitoblar/kitoblar.html', contex)
 
 
-
+@csrf_exempt
 def viloyat(request):
     habar = ''
     if request.method == 'POST':
@@ -31,6 +32,8 @@ def viloyat(request):
     }
     return render(request, 'viloyat/viloyat.html', contex)
 
+
+@csrf_exempt
 def tuman(request):
     habar = ''
     viloyat = Viloyat.objects.all
@@ -49,6 +52,7 @@ def tuman(request):
     }
     return render(request, 'viloyat/tuman.html', contex)
 
+@csrf_exempt
 def mfy(request):
     habar = ''
     viloyat =Viloyat.objects.order_by('viloyat')

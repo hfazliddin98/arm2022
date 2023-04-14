@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, get_user_model
 from django.contrib.auth.hashers import make_password
+from django.views.decorators.csrf import requires_csrf_token, csrf_exempt, csrf_protect
 from django.contrib import messages
 from django.core.paginator import Paginator
 from .models import User
@@ -8,7 +9,7 @@ from arm.models import Bolim, Toifa
 from arm.views import Yangiliklar
 from dekanat.models import Fakultet, Kafedra, Yonalish, Kurs, Guruh, Lavozim
 
-
+@csrf_exempt
 def kirish(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -24,6 +25,7 @@ def kirish(request):
 
     return render(request, 'superuser/admin/kirish.html')
 
+@csrf_exempt
 def home(request):
     yangilik = Yangiliklar.objects.all()      
     page = Paginator(yangilik, 3) 
@@ -37,7 +39,7 @@ def home(request):
     return render(request, 'asosiy/home.html', context)
 
 
-
+@csrf_exempt
 def dekanat(request):
     fakultetlar = Fakultet.objects.all()
     kafedralar = Kafedra.objects.all()
@@ -83,6 +85,7 @@ def dekanat(request):
     }    
     return render(request, 'superuser/admin/dekanat.html', contex)
 
+@csrf_exempt
 def arm(request):    
     bolimlar = Bolim.objects.all()
     toifalar = Toifa.objects.all()
@@ -125,6 +128,7 @@ def arm(request):
     }    
     return render(request, 'superuser/admin/arm.html', contex)
 
+@csrf_exempt
 def talaba(request):
     fakultetlar = Fakultet.objects.all()
     yonalishlar = Yonalish.objects.all()
@@ -173,6 +177,7 @@ def talaba(request):
     }    
     return render(request, 'superuser/admin/talaba.html', contex)
 
+@csrf_exempt
 def superadmin(request):    
     habar = ''
     if request.method == 'POST':
@@ -209,20 +214,24 @@ def superadmin(request):
     }    
     return render(request, 'superuser/admin/superadmin.html', contex)
 
+@csrf_exempt
 def adminlar(request):
     return render(request, 'superuser/admin/adminlar.html')
 
+@csrf_exempt
 def armadmin(request):
     return render(request, 'superuser/arm/armadmin.html')
 
+@csrf_exempt
 def dekanatadmin(request):
     return render(request, 'superuser/dekanat/dekanatadmin.html')
 
+@csrf_exempt
 def talabaadmin(request):
     return render(request, 'superuser/talaba/talaba.html')
 
 
-
+@csrf_exempt
 def superadmin_yangi(request):
     adminlar = get_user_model().objects.all()
     contex = {
@@ -230,6 +239,7 @@ def superadmin_yangi(request):
     }
     return render(request, 'superuser/superadmin/superadmin_yangi.html', contex)
 
+@csrf_exempt
 def dekanat_yangi(request):
     adminlar = get_user_model().objects.all()
     contex = {
@@ -237,6 +247,7 @@ def dekanat_yangi(request):
     }
     return render(request, 'superuser/dekanat/dekanat_yangi.html', contex)
 
+@csrf_exempt
 def arm_yangi(request):
     adminlar = get_user_model().objects.all()
     contex = {

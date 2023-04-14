@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
+from django.views.decorators.csrf import requires_csrf_token, csrf_exempt, csrf_protect
 from .models import Fakultet, Kafedra, Yonalish, Kurs, Guruh
-  
+ 
+@csrf_exempt  
 def fakultet(request):
     if request.method == 'POST':
         fakultetlar = request.POST['fakultet']
@@ -9,6 +11,7 @@ def fakultet(request):
         return redirect('/')
     return render(request, 'dekanat/fakultet/kiritish.html')
 
+@csrf_exempt
 def kafedra(request):
     habar = ''
     if request.method == 'POST':
@@ -25,6 +28,7 @@ def kafedra(request):
     }
     return render(request, 'dekanat/kafedra/kiritish.html')
 
+@csrf_exempt
 def fakultetlar(request):
     kafedralar = Kafedra.objects.all   
     fakultetlar = Fakultet.objects.all()

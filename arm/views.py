@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import requires_csrf_token, csrf_exempt, csrf_protect
 from dekanat.models import Fakultet
 from users.models import User
 from .models import Yangiliklar, Talabalar, Kitoblar
 
-
+@csrf_exempt
 def yangi_yangilik(request):
     if request.method == 'POST':
         title = request.POST['title']
@@ -15,7 +16,7 @@ def yangi_yangilik(request):
 
 
 
-
+@csrf_exempt
 def talabalar(request):
     data = Talabalar.objects.all()   
     contex = {
@@ -23,6 +24,8 @@ def talabalar(request):
     }
     return render(request, 'arm/arm_2/talabalar.html', contex)
 
+
+@csrf_exempt
 def yangi_talaba(request):
     talaba_id = User.objects.all()
     invertor= Kitoblar.objects.all()
@@ -43,7 +46,7 @@ def yangi_talaba(request):
 
 
 
-
+@csrf_exempt
 def yangi_kitob(request):
     fakultet = Fakultet.objects.all()
     if request.method == 'POST':
@@ -72,6 +75,7 @@ def yangi_kitob(request):
     }
     return render(request, 'arm/arm_1/yangi_kitob.html', contex)
 
+@csrf_exempt
 def kitoblar(request):
     data = Kitoblar.objects.all()
     contex  = {
@@ -79,6 +83,8 @@ def kitoblar(request):
     }
     return render(request, 'arm/arm_1/kitoblar.html', contex)
 
+
+@csrf_exempt
 def yangiliklar(request):
     data = Yangiliklar.objects.all()
     contex = {
