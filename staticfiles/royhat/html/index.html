@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish</title>
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="../bootsrtap/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container-fluid pt-5 bg-light d-flex justify-content-center">
+        <form class="form row style-width d-flex justify-content-center pb-5 px-2 pt-4" id="form" novalidate>
+            <h1 class="text-center mb-4">Ro'yxatdan o'tish</h1>
+            <!-- Id -->
+            <div class="position-relative style-div-1 p-0">
+                <input type="text" class="form-control position_1 my-3 pe-5 position-relative" id="inp-id" placeholder="Hems id" required>
+                <img class="position__1" id="person-img" src="../image/head_mail.png" alt="head">
+                <div class="valid-feedback">
+                    Id to'g'ri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Id 12 xonali, Raqamlardan iborat !
+                </div>
+            </div>
+            <!-- Ismi -->
+            <input type="text" placeholder="Ismi" class="bosh-harf py-2 mt-3 form-control">
+            <div class="invalid-feedback">
+                Ismni bosh harfi Kattada bo'lishi kerak
+            </div>
+            <!-- Familya -->
+            <input type="text" placeholder="Familya" class="bosh-harf py-2 mt-3 form-control">
+            <div class="invalid-feedback">
+                Familyani bosh harfi Kattada bo'lishi kerak
+            </div>
+            <!-- Otchestva/Otasi ismi  -->
+            <input type="text" placeholder="Otasi ismi" class="bosh-harf py-2 mt-3 form-control">
+            <div class="invalid-feedback">
+                Ota ismini bosh harfi Kattada bo'lishi kerak
+            </div>
+            <!-- Viloyat -->
+            <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                <option value="">Viloyat</option>
+                <option value="">Viloyat</option>
+                <option value="">Viloyat</option>
+            </select>
+            <!-- Tuman -->
+            <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                <option value="">Tuman</option>
+                <option value="">Tuman</option>
+                <option value="">Tuman</option>
+            </select>
+            <!-- Shahar/Qishloq -->
+            <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                <option value="">Shahar/Qishloq</option>
+                <option value="">Shahar/Qishloq</option>
+                <option value="">Shahar/Qishloq</option>
+            </select>
+            <!-- Ko'chasi uy no'meri -->
+            <input type="text" placeholder="Ko'cha / Uy raqami" class="form-control mt-3 py-2 bosh-harf">
+            <!-- Email -->
+            <input type="email" placeholder="Email" id="email-kirit" class="form-control py-2 mt-4" required>
+            <div class="valid-feedback">
+                To'g'ri kiritildi
+            </div>
+            <div class="invalid-feedback">
+                Xato kiritilgan email
+            </div>
+
+            <!-- Tanlov: Dekanat/ ARM / Talaba -->
+            <div class="col-12 mt-3 p-0">
+                <select name="#" id="select-lavozim" aria-label="Lavozim" class="col-12 py-2 mt-3 form-select">
+                    <option class="d-none" value="0" selected>Lavozimi</option>
+                    <option value="1">Dekanat</option>
+                    <option value="2">ARM</option>
+                    <option value="3">Talaba</option>
+                </select>
+            </div>
+            <div class="dekanat-form border p-0 pt-3" id="dekanat-div">
+                <!-- Fakultet -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Fakultet</option>
+                </select>
+                <!-- Kafedra -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Kafedra</option>
+                </select>
+                <!-- Lavozimi -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Lavozimi</option>
+                </select>
+            </div>
+            <div class="ARM-form border p-0 pt-3"  id="ARM-div">
+                <!-- ARM -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">ARM-1</option>
+                </select>
+                <!-- Toifa -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Toifa</option>
+                </select>
+            </div>
+            <div class="Talaba-form border p-0 pt-3"  id="Talaba-div">
+                <!-- Fakultet -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Fakultet</option>
+                </select>
+                <!-- Yo'nalish -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Yo'nalish</option>
+                </select>
+                <!-- Guruh -->
+                <select name="#" id="#" class="col-12 py-2 mt-3 form-select">
+                    <option value="">Guruh</option>
+                </select>
+            </div>
+           
+            <div class="position-relative style-div-1 p-0 mt-3">
+                <input type="password" class="form-control position_2 my-3 pe-5" id="inp-passw-1" placeholder="Parol" required>
+                <img class="position__2" id="key" src="../image/key.png" alt="key">
+                <img src="../image/icons8-eye-30.png" class="eye_pass d-none" id="eye_pass" alt="Eye">
+                <div class="valid-feedback">
+                    To'gri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Xato kiritildi. Parol bosh belgi harfda, raqamlar ishtirokida, 6 tadan ko'p 12 tadan kam bo'lishi kerak. 
+                </div>
+            </div>
+
+            <div class="position-relative style-div-1 p-0">
+
+                <input type="password" class="form-control position_2 my-3 pe-5" id="inp-passw-2" placeholder="Parolni tasdiqlang" required>
+
+                <img class="position__2" id="key-pass-2" src="../image/key.png" alt="key">
+                <img src="../image/icons8-eye-30.png" class="eye_pass d-none" id="eye_pass-2" alt="Eye">
+
+                <div class="valid-feedback">
+                    To'gri kiritildi
+                </div>
+                <div class="invalid-feedback">
+                    Xato kiritildi. Parol birinchi kiritilgan paro'lingiz bilan bir xil bo'lishi kerak
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-50 mt-4">Kirish</button>
+        </form>
+    </div>
+    <!-- bootstrap JS -->
+    <script src="../bootsrtap/js/bootstrap.bundle.min.js"></script>
+    <!-- My JS -->
+    <script src="../js/app.js"></script>
+</body>
+</html>

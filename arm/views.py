@@ -64,11 +64,11 @@ def yangi_kitob(request):
         darslik_turi = request.POST['darslik_turi']
         kitobni_fondagi_soni = request.POST['kitobni_fondagi_soni']
         anatatsiya = request.POST['anatatsiya']
-        mundarija = request.POST['mundarija']
+        # mundarija = request.POST['mundarija']
         kitob_turi = request.POST['kitob_turi']
         kitob_rasmini_kiriting = request.POST['kitob_rasmini_kiriting']
         fayl = request.POST['fayl']
-        Kitoblar.objects.create(mualiflar=mualiflar, fayl=fayl, kitob_rasmini_kiriting=kitob_rasmini_kiriting, kitob_turi=kitob_turi, mundarija=mundarija, anatatsiya=anatatsiya, kitobni_fondagi_soni=kitobni_fondagi_soni, darslik_turi=darslik_turi, alfabit=alfabit, tili=tili, kitob_narxi=kitob_narxi, isbn=isbn, nashr_yili=nashr_yili, nashriyot=nashriyot, kitob_nomi=kitob_nomi, shifr=shifr,aftor_belgisi=aftor_belgisi,invertor_nomeri=invertor_nomeri)
+        Kitoblar.objects.create(mualiflar=mualiflar, fayl=fayl, kitob_rasmini_kiriting=kitob_rasmini_kiriting, kitob_turi=kitob_turi, anatatsiya=anatatsiya, kitobni_fondagi_soni=kitobni_fondagi_soni, darslik_turi=darslik_turi, alfabit=alfabit, tili=tili, kitob_narxi=kitob_narxi, isbn=isbn, nashr_yili=nashr_yili, nashriyot=nashriyot, kitob_nomi=kitob_nomi, shifr=shifr,aftor_belgisi=aftor_belgisi,invertor_nomeri=invertor_nomeri)
         return redirect('/')
     contex = {
         'fakultet':fakultet,

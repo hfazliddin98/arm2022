@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.form-check {
+    user-select: none;
+}
+.style-width {
+    max-width: 600px;
+}
+.position__2 {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 25px;
+    right: 12px;
+    color: black;
+}
+.eye_pass {
+    width: 18px;
+    position: absolute;
+    top: 25px;
+    right: 36px;
+}
+.position__1 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 24px;
+    right: 12px;
+}
+
+@media screen and (min-width: 768px) {
+    .style-mar-top {
+        margin-top: 15px;
+    }
+}
