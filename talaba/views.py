@@ -1,8 +1,31 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt, requires_csrf_token, csrf_protect
 from users.models import User
-from .models import  Viloyat, Tuman, Mfy
+from .models import  Viloyat, Tuman, Mfy, Talaba_activ
 from arm.models import Kitoblar, Talabalar
+
+
+@csrf_exempt
+def talaba_activ(request):
+    user = User.objects.all()
+    data = Talabalar.objects.all
+    if request.method == 'POST':
+        habar = ''
+        talaba_id = request.POST['talaba_id']
+        activ = request.POST['activ']
+        if Talaba_activ.objects.filter(talaba_id=talaba_id):
+            habar = 'Bu talaba activ holatda'
+        else:
+            baza = Talaba_activ.objects.create(talaba_id=talaba_id,activ=activ)
+            baza.save()
+        return redirect('/')
+
+    contex = {
+        'habar':habar,
+        'data':data,
+        'user':user,
+    }
+    return render(request, 'talaba/kitoblar/kitoblar.html', contex)
 
 @csrf_exempt
 def talaba_kitob(request):
