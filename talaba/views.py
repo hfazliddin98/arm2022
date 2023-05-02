@@ -7,10 +7,10 @@ from arm.models import Kitoblar, Talabalar
 
 @csrf_exempt
 def talaba_activ(request):
+    habar = ''
     user = User.objects.all()
     data = Talabalar.objects.all
-    if request.method == 'POST':
-        habar = ''
+    if request.method == 'POST':        
         talaba_id = request.POST['talaba_id']
         activ = request.POST['activ']
         if Talaba_activ.objects.filter(talaba_id=talaba_id):
@@ -25,7 +25,7 @@ def talaba_activ(request):
         'data':data,
         'user':user,
     }
-    return render(request, 'talaba/kitoblar/kitoblar.html', contex)
+    return render(request, 'talaba/talaba/talaba_activ.html', contex)
 
 @csrf_exempt
 def talaba_kitob(request):

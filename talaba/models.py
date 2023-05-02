@@ -1,8 +1,9 @@
 from django.db import models
+from users.models import User
 
 
 class Talaba_activ(models.Model):
-    talaba_id = models.CharField(max_length=100)
+    talaba_id = models.ForeignKey(User, on_delete=models.CASCADE)
     activ = models.CharField(max_length=100)
 
 class Viloyat(models.Model):

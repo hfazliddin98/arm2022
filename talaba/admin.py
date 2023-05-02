@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import Viloyat, Tuman,Mfy
+from .models import Viloyat, Tuman,Mfy, Talaba_activ
 
-admin.site.register([Viloyat,Tuman,Mfy])
+admin.site.register([Viloyat,Tuman,Mfy, Talaba_activ])
 
 
-# Register your models here.
