@@ -5,10 +5,12 @@ from django.views.decorators.csrf import requires_csrf_token, csrf_exempt, csrf_
 from django.contrib import messages
 from django.core.paginator import Paginator
 from .models import User
-from talaba.models import Talaba_activ
 from arm.models import Bolim, Toifa
 from arm.views import Yangiliklar
 from dekanat.models import Fakultet, Kafedra, Yonalish, Kurs, Guruh, Lavozim
+
+
+
 
 @csrf_exempt
 def kirish(request):
@@ -28,17 +30,15 @@ def kirish(request):
 
 @csrf_exempt
 def home(request):
-    talaaba_data = Talaba_activ.objects.all()
+   
     yangilik = Yangiliklar.objects.all()      
     page = Paginator(yangilik, 3) 
     page_list = request.GET.get('page')
     page = page.get_page(page_list)
 
     context = {
-        'page' : page, 
-        'talaba_data':talaaba_data,      
+        'page' : page,             
     }
-
     return render(request, 'asosiy/home.html', context)
 
 

@@ -3,6 +3,7 @@ from django.views.decorators.csrf import requires_csrf_token, csrf_exempt, csrf_
 from dekanat.models import Fakultet
 from users.models import User
 from .models import Yangiliklar, Talabalar, Kitoblar
+from .models import Tili, Alfabit, Resurs_sohasi , Resurs_turi
 
 @csrf_exempt
 def yangi_yangilik(request):
@@ -49,6 +50,11 @@ def yangi_talaba(request):
 @csrf_exempt
 def yangi_kitob(request):
     fakultet = Fakultet.objects.all()
+    tillar = Tili.objects.all()
+    alfabitlar = Alfabit.objects.all()
+    resurs_sohasi = Resurs_sohasi.objects.all()
+    resurs_turi = Resurs_turi.objects.all()
+
     if request.method == 'POST':
         shifr = request.POST['shifr']
         aftor_belgisi = request.POST['aftor_belgisi']
@@ -72,6 +78,11 @@ def yangi_kitob(request):
         return redirect('/')
     contex = {
         'fakultet':fakultet,
+        'tillar':tillar,
+        'alfabitlar':alfabitlar,
+        'resurs_sohasi':resurs_sohasi,
+        'resurs_turi':resurs_turi,
+
     }
     return render(request, 'arm/arm_1/yangi_kitob.html', contex)
 
@@ -91,3 +102,55 @@ def yangiliklar(request):
         'data':data,
     }
     return render(request, 'arm/arm_3/yangiliklar.html', contex)
+
+@csrf_exempt
+def yangi_til(request):
+    if request.method == 'POST':
+        til = request.POST['til']
+        baza  = Tili.objects.create(tili = til)
+        baza.save()
+        return redirect('/')
+    contex = {
+
+    }
+    return render(request, 'arm/arm_1/tili.html', contex)
+
+
+@csrf_exempt
+def yangi_alfabit(request):
+    if request.method == 'POST':
+        alfabit = request.POST['alfabit']
+        baza = Alfabit.objects.create(alfabit= alfabit)
+        baza.save()
+
+    contex = {
+
+    }
+    return render(request, 'arm/arm_1/alfabit.html', contex)
+
+@csrf_exempt
+def yangi_resurs_sohasi(request):
+    if request.method == 'POST':
+        resurs_sohasi = request.POST['resurs_sohasi']
+        baza = Resurs_sohasi.objects.create(resurs_sohasi = resurs_sohasi)
+        baza.save()
+
+    contex = {
+
+    }
+    return render(request, 'arm/arm_1/resurs_soxasi.html', contex)
+
+@csrf_exempt
+def yangi_resurs_turi(request):
+    if request.method == 'POST':
+        resurs_turi = request.POST['resurs_turi']
+        baza = Resurs_turi.objects.create(resurs_turi=resurs_turi)
+        baza.save()
+
+    contex = {
+
+    }
+    return render(request, 'arm/arm_1/resurs_turi.html', contex)
+
+
+

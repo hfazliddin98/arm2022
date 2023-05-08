@@ -8,8 +8,7 @@ urlpatterns = [
     path('admin/haker/', admin.site.urls),   
     path('', include('users.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('arm/', include('arm.urls')),
-    
+    path('arm/', include('arm.urls')),    
     path('talaba/', include('talaba.urls')),
     path('dekanat/', include('dekanat.urls')),
 ]

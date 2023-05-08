@@ -1,0 +1,8 @@
+<h1>sinov  formasi</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <input name="ism" type="text" placeholder="ism">
+    <button type="submit">saqlash</button>
+    <a href="{% url 'update' %} ">update</a>
+</form>

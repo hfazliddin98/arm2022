@@ -1,38 +1,23 @@
 from django.shortcuts import render, redirect
+from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt, requires_csrf_token, csrf_protect
 from users.models import User
-from .models import  Viloyat, Tuman, Mfy, Talaba_activ
+from .models import  Viloyat, Tuman, Mfy, Talaba, Sinov
 from arm.models import Kitoblar, Talabalar
 
 
-@csrf_exempt
-def talaba_activ(request):
-    habar = ''
-    user = User.objects.all()
-    data = Talabalar.objects.all
-    if request.method == 'POST':        
-        talaba_id = request.POST['talaba_id']
-        activ = request.POST['activ']
-        if Talaba_activ.objects.filter(talaba_id=talaba_id):
-            habar = 'Bu talaba activ holatda'
-        else:
-            baza = Talaba_activ.objects.create(talaba_id=talaba_id,activ=activ)
-            baza.save()
-        return redirect('/')
 
-    contex = {
-        'habar':habar,
-        'data':data,
-        'user':user,
-    }
-    return render(request, 'talaba/talaba/talaba_activ.html', contex)
 
 @csrf_exempt
 def talaba_kitob(request):
-    user = User.objects.all()
+    talaba_id = request.user.id
+    user = User.objects.get(id = talaba_id)
     data = Talabalar.objects.all
-
+    talaba = Talaba.objects.all()   
+ 
+    
     contex = {
+        'talaba':talaba,
         'data':data,
         'user':user,
     }
@@ -96,7 +81,36 @@ def mfy(request):
         'habar':habar,
     }
     return render(request, 'viloyat/mfy.html', contex)
+
+def sinov(request):
+    if request.method == 'POST':
+        ism = request.POST['ism']              
+        baza = Sinov.objects.create(ism=ism)
+        baza.save()
+
+    contex = {
+        
+    }
+    return render(request, 'sinov.html', contex)
+
+
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+
+def update(request, pk):
+    data = get_object_or_404(Sinov, pk=pk)
+
+    data.ism = 'alisher'
+
+    data.save()
     
+
+
+    contex = {
+        
+    }
+    return render(request, 'update.html', contex)
+
     
     
   

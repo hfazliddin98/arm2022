@@ -60,3 +60,28 @@ class Toifa(models.Model):
 
     def __str__(self):
         return self.toifa
+    
+
+class Tili(models.Model):
+    tili = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.tili
+    
+class Alfabit(models.Model):
+    alfabit = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.alfabit
+    
+class Resurs_sohasi(models.Model):
+    resurs_sohasi = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.resurs_sohasi
+    
+class Resurs_turi(models.Model):
+    resurs_turi = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.resurs_turi

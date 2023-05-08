@@ -20,5 +20,43 @@
         </ul>        
       </div>
     </div>
+  </div> 
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+        <i class="bi bi-book-half pe-2"></i>
+        Resurslar
+      </button>
+    </h2>
+    <div id="flush-collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body p-0 m-0">        
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="bi bi-cloud-arrow-up pe-2"></i>
+            <a href="{% url 'yangi_til' %}" class="text-dark bg-white" style="text-decoration: none;">Yangi til</a>             
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-cloud-arrow-up pe-2"></i>
+            <a href="{% url 'yangi_alfabit' %}" class="text-dark bg-white" style="text-decoration: none;">Yangi alfabit</a>            
+          </li> 
+          <li class="list-group-item">
+            <i class="bi bi-cloud-arrow-up pe-2"></i>
+            <a href="{% url 'yangi_resurs_turi' %}" class="text-dark bg-white" style="text-decoration: none;">Resurs turi</a>             
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-cloud-arrow-up pe-2"></i>
+            <a href="{% url 'yangi_resurs_sohasi' %}" class="text-dark bg-white" style="text-decoration: none;">Resurs sohasi</a>             
+          </li>                  
+        </ul>        
+      </div>
+    </div>
   </div>  
+
+</div>
+
+
+<div class="accordion accordion-flush" id="accordionFlushExample1">  
+  
 </div>

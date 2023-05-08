@@ -45,11 +45,35 @@
             <input class="form-control" type="text" placeholder="Nashr yili" aria-label="default input example" name="nashr_yili" type="text">
             <input class="form-control" type="text" placeholder="ISBN" aria-label="default input example" name="isbn" type="text">
             <input class="form-control" type="text" placeholder="Kitob narxi" aria-label="default input example" name="kitob_narxi" type="text">
-            <input class="form-control" type="text" placeholder="Tili" aria-label="default input example" name="tili" type="text">
-            <input class="form-control" type="text" placeholder="Alfabit" aria-label="default input example" name="alfabit" type="text">
-            <input class="form-control" type="text" placeholder="Resurs soxasi" aria-label="default input example" name="darslik_turi" type="text">
+            <input class="form-control" list="datalistOptionst" id="exampleDataList" name="tili" placeholder="Tillar">
+            <datalist id="datalistOptionst">
+                {% for t in tillar %}
+                <option value={{t}}>
+                {% endfor%}               
+            </datalist> 
+            <!-- <input class="form-control" type="text" placeholder="Tili" aria-label="default input example" name="tili" type="text"> -->
+            <input class="form-control" list="datalistOptionsa" id="exampleDataList" name="tili" name="alfabit" placeholder="Alfabitlar">
+            <datalist id="datalistOptionsa">
+                {% for a in alfabitlar %}
+                <option value={{a}}>
+                {% endfor%}               
+            </datalist>
+            <!-- <input class="form-control" type="text" placeholder="Alfabit" aria-label="default input example" name="alfabit" type="text"> -->
+            <input class="form-control" list="datalistOptionsrs" id="exampleDataList" name="tili" name="darslik_turi" placeholder="Resurs soxasi">
+            <datalist id="datalistOptionsrs">
+                {% for rs in resurs_sohasi %}
+                <option value={{rs}}>
+                {% endfor%}               
+            </datalist>
+            <!-- <input class="form-control" type="text" placeholder="Resurs soxasi" aria-label="default input example" name="darslik_turi" type="text"> -->
             <!-- <input class="form-control" type="text" placeholder="Munddarija" aria-label="default input example" name="mundarija" type="text"> -->
-            <input class="form-control" type="text" placeholder="Resurs turi" aria-label="default input example" name="kitob_turi" type="text">
+            <input class="form-control" list="datalistOptionsrt" id="exampleDataList" name="tili" name="kitob_turi" placeholder="Resurs turi">
+            <datalist id="datalistOptionsrt">
+                {% for rt in resurs_turi %}
+                <option value={{rt}}>
+                {% endfor%}               
+            </datalist>
+            <!-- <input class="form-control" type="text" placeholder="Resurs turi" aria-label="default input example" name="kitob_turi" type="text"> -->
             <input class="form-control" type="text" placeholder="Kitobni fondagi soni" aria-label="default input example" name="kitobni_fondagi_soni" type="text">
             
             <div class="row g-3 align-items-center">

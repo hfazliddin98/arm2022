@@ -14,5 +14,5 @@ urlpatterns = [
     path('user/superadmin_yangi/', superadmin_yangi, name='superadmin_yangi'),
     path('user/armadmin/', armadmin, name='armadmin'),
     path('user/dekanatadmin/', dekanatadmin, name='dekanatadmin'),   
-    path('user/talabaadmin/', talabaadmin, name='talabaadmin'), 
+    path('user/talabaadmin/', talabaadmin, name='talabaadmin'),   
 ]

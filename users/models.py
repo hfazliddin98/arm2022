@@ -25,6 +25,7 @@ class User(AbstractUser):
     talaba_yonalish = models.CharField(max_length=100, blank=True)
     talaba_kurs = models.CharField(max_length=100, blank=True)
     talaba_guruh = models.CharField(max_length=100, blank=True)
+    talaba_activ = models.CharField(max_length=100, blank=True, default=False)
 
 
 
