@@ -80,8 +80,8 @@ WSGI_APPLICATION = 'asosiy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'arm2023',
-        'USER': 'arm2023user',
+        'NAME': 'arm2022',
+        'USER': 'arm2022user',
         'PASSWORD': 'SAdm@2022',
         'HOST': 'localhost',
         'PORT': '5432',
