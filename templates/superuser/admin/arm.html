@@ -55,11 +55,19 @@
             </div>
             <!-- bo`lim -->
             <select class="col-12 py-2 mt-3 form-select" name="arm_bolim" id="arm_bolim" aria-label="Default select example">
+                <option value="" selected disabled>Bo`lim</option>                
+                <option value="arm-1">arm-1</option>
+                <option value="arm-2">arm-2</option>
+                <option value="arm-3">arm-3</option>
+                
+            </select>
+            <!-- <select class="col-12 py-2 mt-3 form-select" name="arm_bolim" id="arm_bolim" aria-label="Default select example">
                 <option value="" selected disabled>Bo`lim</option>
                 {% for b in bolimlar %}
                     <option value="{{b}}">{{b}}</option>
                 {% endfor %}
-            </select>
+            </select> -->
+
             <!-- Toifa -->          
             <select class="col-12 py-2 mt-3 form-select" name="arm_toifa" id="arm_toifa" aria-label="Default select example">
                 <option value="" selected disabled>Toifa</option>                
