@@ -23,6 +23,7 @@ def talabalar(request):
     contex = {
         'data':data,
     }
+    breakpoint()
     return render(request, 'arm/arm_2/talabalar.html', contex)
 
 
@@ -72,9 +73,9 @@ def yangi_kitob(request):
         anatatsiya = request.POST['anatatsiya']
         # mundarija = request.POST['mundarija']
         kitob_turi = request.POST['kitob_turi']
-        kitob_rasmini_kiriting = request.POST['kitob_rasmini_kiriting']
-        fayl = request.POST['fayl']
-        Kitoblar.objects.create(mualiflar=mualiflar, fayl=fayl, kitob_rasmini_kiriting=kitob_rasmini_kiriting, kitob_turi=kitob_turi, anatatsiya=anatatsiya, kitobni_fondagi_soni=kitobni_fondagi_soni, darslik_turi=darslik_turi, alfabit=alfabit, tili=tili, kitob_narxi=kitob_narxi, isbn=isbn, nashr_yili=nashr_yili, nashriyot=nashriyot, kitob_nomi=kitob_nomi, shifr=shifr,aftor_belgisi=aftor_belgisi,invertor_nomeri=invertor_nomeri)
+        kitob_rasmi = request.FILES['kitob_rasmi']
+        fayl = request.FILES['fayl']
+        Kitoblar.objects.create(mualiflar=mualiflar, fayl=fayl, kitob_rasmi=kitob_rasmi, kitob_turi=kitob_turi, anatatsiya=anatatsiya, kitobni_fondagi_soni=kitobni_fondagi_soni, darslik_turi=darslik_turi, alfabit=alfabit, tili=tili, kitob_narxi=kitob_narxi, isbn=isbn, nashr_yili=nashr_yili, nashriyot=nashriyot, kitob_nomi=kitob_nomi, shifr=shifr,aftor_belgisi=aftor_belgisi,invertor_nomeri=invertor_nomeri)
         return redirect('/')
     contex = {
         'fakultet':fakultet,
