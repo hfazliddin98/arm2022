@@ -29,7 +29,7 @@ class Kitoblar(models.Model):
     anatatsiya = models.CharField(max_length=10000)
     mundarija = models.CharField(max_length=600, blank=True)
     kitob_turi = models.CharField(max_length=100)
-    kitob_rasmini_kiriting = models.ImageField(upload_to='rasm/', null = True)
+    kitob_rasmi= models.FileField(upload_to='rasm/', blank=True)
     fayl = models.FileField(upload_to='kitob/', blank=True)
     sana = models.DateTimeField(auto_now_add=True) 
 

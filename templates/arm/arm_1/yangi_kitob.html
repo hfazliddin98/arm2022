@@ -26,7 +26,7 @@
     
     <div class="container p-4">
         <h1 class="text-center">Yangi kitob kiritish</h1>
-        <form class="row g-3" method="POST">
+        <form class="row g-3" enctype="multipart/form-data" method="POST">
             {% csrf_token %}
 <!--             
             <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Fakultet qidiruv...">
@@ -78,10 +78,10 @@
             
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                  <label for="inputPassword6" class="col-form-label">Kitob rasmi</label>
+                  <label for="formFileSm" class="col-form-label">Kitob rasmi</label>
                 </div>
                 <div class="col-auto">
-                    <input class="form-control form-control-sm" id="formFileSm" type="file" accept=".jpg, .jpeg, .png" name="kitob_rasmini_kiriting">                  
+                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="kitob_rasmini_kiriting">                  
                 </div>                
             </div>
             
