@@ -26,7 +26,7 @@ class Kitoblar(models.Model):
     alfabit = models.CharField(max_length=200)
     darslik_turi = models.CharField(max_length=200)
     kitobni_fondagi_soni =  models.CharField(max_length=200)
-    anatatsiya = models.CharField(max_length=600)
+    anatatsiya = models.CharField(max_length=10000)
     mundarija = models.CharField(max_length=600, blank=True)
     kitob_turi = models.CharField(max_length=100)
     kitob_rasmini_kiriting = models.ImageField(upload_to='rasm/', null = True)
